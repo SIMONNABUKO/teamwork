@@ -1,8 +1,13 @@
-const Pool = require('pg');
+const { Pool } = require('pg');
 
-const dbConfiguration = require('./config/keys');
+// const dbCredentials = require('./config/keys');
 
 const pool = new Pool({
-    dbConfiguration
+    user: 'simon',
+    host: 'localhost',
+    database: 'teamwork',
+    password: 'simon',
+    port: 5432
 });
+
 module.exports = pool;

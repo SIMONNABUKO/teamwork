@@ -27,7 +27,7 @@ app.get('/', (req, res) => {
 
 // use routes
 
-app.use('/users', auth);
+app.use('/auth', auth);
 app.use('/articles', articles);
 app.use('/gifs', gifs);
 app.use('/profile', profile);
