@@ -35,11 +35,12 @@ router.get('', verifyUser, (req, res) => {
                   res.json({
                     status: 'success',
                     allArticles,
-                    Allgifs
+                    Allgifs,
+                    userData
                   });
                 }
               })
-              .catch(error => console.log(error));
+              .catch(err => console.log(err));
 
             // res.status(200).json({
             //   status: 'success',
