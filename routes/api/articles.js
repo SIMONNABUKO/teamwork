@@ -29,7 +29,7 @@ router.post('', verifyUser, (req, res) => {
         title
       ])
         .then(() => {
-          res.sendStatus(200).json({
+          res.status(200).json({
             status: 'Success',
             msg: 'The article has been posted successfully',
             user: userData
@@ -63,7 +63,7 @@ router.patch('/:id', verifyUser, (req, res) => {
               [article, title, id]
             )
               .then(() => {
-                res.sendStatus(200).json({
+                res.status(200).json({
                   status: 'success',
                   msg: 'article updated successfully',
                   user: userData
@@ -128,16 +128,17 @@ router.get('/:id', verifyUser, (req, res) => {
               error: 'article not found'
             });
           } else {
-            db.query('SELECT * FROM article WHERE id = $1', [id]).then(
-              articleData => {
+            db.query('SELECT * FROM articles WHERE id = $1', [id])
+              .then(articleData => {
                 const article = articleData.rows;
+                console.log(article);
                 res.status(200).json({
                   status: 'success',
                   article,
                   user: userData
                 });
-              }
-            );
+              })
+              .catch(error => console.log(error));
           }
         })
         .catch(error => console.log(error));
