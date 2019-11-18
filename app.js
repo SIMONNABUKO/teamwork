@@ -28,11 +28,11 @@ app.get('/', (req, res) => {
 
 // use routes
 
-app.use('/auth', auth);
-app.use('/articles', articles);
-app.use('/gifs', gifs);
-app.use('/profile', profile);
-app.use('/feed', feed);
+app.use('api/v1/auth', auth);
+app.use('api/v1/articles', articles);
+app.use('api/v1/gifs', gifs);
+app.use('api/v1/profile', profile);
+app.use('api/v1/feed', feed);
 
 app.listen(port, () => {
   console.log(`The app is running on port ${port}`);
